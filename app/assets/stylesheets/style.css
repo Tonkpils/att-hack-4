@@ -2091,7 +2091,7 @@ dd {
 .slider .slide-up, .slider .slide-down { 
 	height: 30px; background: #333; text-align: center; cursor: pointer; float: right; width: 100%; position: relative;background: rgb(246,246,246); /* Old browsers */
 	background: -moz-linear-gradient(top, rgba(246,246,246,1) 0%, rgba(234,234,234,1) 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(246,246,246,1)), color-stop(100%,rgba(234,234,234,1)))
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(246,246,246,1)), color-stop(100%,rgba(234,234,234,1)));
 	background: -webkit-linear-gradient(top, rgba(246,246,246,1) 0%,rgba(234,234,234,1) 100%); /* Chrome10+,Safari5.1+ */
 	background: -o-linear-gradient(top, rgba(246,246,246,1) 0%,rgba(234,234,234,1) 100%); /* Opera 11.10+ */
 	background: -ms-linear-gradient(top, rgba(246,246,246,1) 0%,rgba(234,234,234,1) 100%); /* IE10+ */
