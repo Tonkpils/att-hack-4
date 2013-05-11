@@ -18,7 +18,12 @@ class ClientsController < ApplicationController
       @client.user_id = current_user.id
     end
 
+    client = Harvest::Client.new(name: @client.name)
+    client = $harvest.clients.create(client)
+    @client.harvest_id = client.id
+
     @client.save!
+
     redirect_to clients_url, notice: "Client #{@client.name} added"
   end
 
@@ -30,4 +35,7 @@ class ClientsController < ApplicationController
     Client.destroy(params[:id])
     render json: {id: params[:id]}, status: :ok
   end
+
+
+
 end

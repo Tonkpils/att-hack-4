@@ -47,8 +47,17 @@ class CasesController < ApplicationController
   def create
     @case = @client.cases.create params[:case]
 
+    project = Harvest::Project.new(name: @case.name, client_id: @client.harvest_id, billable: true, notes: @case.notes)
+    project = $harvest.projects.create(project)
+    task = $harvest.projects.create_task(project, "New Case Metting #{project.id}")
+
+    @case.task_id = task.id
+    @case.project_id = project.id
+
     respond_to do |format|
       if @case.save
+
+        #entry = $harvest.entries
         format.html { redirect_to client_case_path(client_id: @client.id, id: @case.id), notice: 'Case was successfully created.' }
         format.json { render json: @case, status: :created, location: @case }
       else

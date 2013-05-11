@@ -6,8 +6,7 @@ $(document).ready ->
   $('#timer').click ->
     $("div#timecount").countdown
       since: new Date()
-      format: "YOWDHMS"
-      description: "Hello"
+      format: "HMS"
     if $('#timer').hasClass('started')
       $("#timecount").countdown('pause')
       $("#timer").removeClass("started")

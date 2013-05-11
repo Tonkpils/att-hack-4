@@ -1,7 +1,10 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Case <%= @case.name %></h1>
-<small><%= @case.client.name %></small>
-
-<div id="timecount"></div>
-<button id="timer">Start Timer</button>
+<small><%= "Client's Name : #{@case.client.name}" %></small><br />
+<row>
+  <button id="timer" class="btn btn-small btn-primary">Start Timer</button>
+</row>
+<row>
+  <div id="timecount"></div>
+</row>
