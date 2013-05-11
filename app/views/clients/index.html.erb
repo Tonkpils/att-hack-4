@@ -10,11 +10,20 @@
   <tr>
     <th>Name</th>
     <th></th>
+    <th></th>
   </tr>
 <%- @clients.each do |c| %>
   <tr id=<%= "client_#{c.id}"%>>
     <td><%= c.name %></td>
-    <td><%= link_to "Delete", client_path(c), class: "btn btn-danger btn-small pull-right client_delete", :'data-method' => :delete, remote: true %></td>
+    <td>
+      <%= link_to "Create New Case", new_client_case_path(client_id: c.id), class: "btn btn-primary btn-small new_client_case", :'data-method' => :add %>
+    </td>
+    <td>
+      <%= link_to "View Cases", client_cases_path(client_id: c.id), class: "btn btn-primary btn-small new_client_case", :'data-method' => :add %>
+    </td>
+    <td>
+      <%= link_to "Delete", client_path(c), class: "btn btn-danger btn-small pull-right client_delete", :'data-method' => :delete, remote: true %>
+    </td>
   </tr>
 <% end %>
 </table>
