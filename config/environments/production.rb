@@ -20,6 +20,10 @@ BarTab::Application.configure do
   # Generate digests for assets URLs
   config.assets.digest = true
 
+  config.assets.precompile << 'sencha-touch2-rails/sencha-touch.css'
+  config.assets.precompile << 'sencha-touch2-rails/apple.css'
+  config.assets.precompile << 'sencha-touch2-rails/sencha-touch-all.js'
+
   # Defaults to nil and saved in location specified by config.assets.prefix
   # config.assets.manifest = YOUR_PATH
 
