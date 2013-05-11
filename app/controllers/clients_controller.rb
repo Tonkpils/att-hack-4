@@ -1,7 +1,7 @@
 class ClientsController < ApplicationController
   def index
     @client = Client.new
-    @clients = Client.all
+    @clients = Client.where(user_id: (current_user ? current_user.id : params[:user_id]))
   end
 
   def show
@@ -9,7 +9,6 @@ class ClientsController < ApplicationController
   end
 
   def create
-    puts "PARAMS #{params.inspect}"
     client_params = params[:client]
     @client = Client.where(name: client_params[:name]).first_or_initialize
     if @client.new_record?
