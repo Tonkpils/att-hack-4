@@ -1,7 +1,7 @@
 <div id="sign-in" class="sign-in-form">
     <h2>Sign in</h2>
 
-    <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), remote: true) do |f| %>
+    <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
       <div><%= f.label :email %><br />
       <%= f.email_field :email, :autofocus => true %></div>
 
