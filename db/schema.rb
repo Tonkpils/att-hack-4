@@ -11,17 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130511215532) do
+ActiveRecord::Schema.define(:version => 20130511230245) do
 
   create_table "cases", :force => true do |t|
     t.integer  "client_id"
     t.text     "notes"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
     t.string   "name"
     t.integer  "user_id"
     t.integer  "project_id"
     t.integer  "task_id"
+    t.integer  "invoice_id"
+    t.integer  "invoice_number"
   end
 
   create_table "clients", :force => true do |t|

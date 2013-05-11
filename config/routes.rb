@@ -4,7 +4,10 @@ BarTab::Application.routes.draw do
 
 
   resources :clients do
-    resources :cases
+    resources :cases do
+      post '/invoice' => 'cases#invoice'
+      get  '/invoice/:invoice_id' => 'cases#show_invoice'
+    end
   end
 
 

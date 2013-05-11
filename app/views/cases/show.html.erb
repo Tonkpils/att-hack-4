@@ -9,5 +9,5 @@
   <div id="timecount"></div>
 </row>
 <row>
-	<%= link_to "Create Invoice", new_invoice_path(client_id: client.id), class: "btn btn-primary btn-small new_client_case", :'data-method' => :get %>
+	<%= link_to "Create Invoice", client_case_invoice_path(client_id: @client.id, case_id: @case.id), class: "btn btn-primary btn-small new_client_case", :'data-method' => :post %>
 </row>

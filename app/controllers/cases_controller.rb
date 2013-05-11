@@ -53,6 +53,7 @@ class CasesController < ApplicationController
 
     @case.task_id = task.id
     @case.project_id = project.id
+    @case.invoice_number = 1001
 
     respond_to do |format|
       if @case.save
@@ -93,5 +94,37 @@ class CasesController < ApplicationController
       format.html { redirect_to cases_url }
       format.json { head :no_content }
     end
+  end
+
+  def invoice
+    @case = @client.cases.find(params[:case_id])
+    number = rand(100000000)
+    @case.invoice_number = number
+    @case.save!
+    invoice = Harvest::Invoice.new(
+        subject: "Invoice for #{@client.name} case #{@case.name}",
+        client_id: @client.harvest_id,
+        issued_at: Time.now,
+        due_at: Time.now.advance(days: 30),
+        currency: "United States Dollars - USD",
+        number: @case.invoice_number,
+        notes: @case.notes,
+        state: "draft",
+        line_items: [Harvest::LineItem.new("kind" => "Service", "description" => "One item", "quantity" => 200, "unit_price" => "12.00")]
+    )
+
+    begin
+      @invoice = $harvest.invoices.create(invoice)
+    rescue
+      invoice[:number] = @case.invoice_number
+      @invoice = $harvest.invoices.create(invoice)
+    end
+
+    @case.update_attribute(:invoice_id, @invoice.id)
+
+    render 'cases/invoice'
+  end
+
+  def show_invoice
   end
 end
