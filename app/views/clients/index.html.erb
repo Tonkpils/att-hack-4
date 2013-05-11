@@ -7,11 +7,13 @@
 <% end %>
 
 <table id="client_list">
-  <tr>
-    <th>Name</th>
-    <th></th>
-    <th></th>
-  </tr>
+  <%- if @clients.any? %>
+    <tr>
+      <th>Name</th>
+      <th></th>
+      <th></th>
+    </tr>
+  <%- end %>
 <%- @clients.each do |c| %>
   <tr id=<%= "client_#{c.id}"%>>
     <td><%= c.name %></td>

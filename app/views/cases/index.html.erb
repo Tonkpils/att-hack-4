@@ -1,6 +1,7 @@
 <h1>Listing cases</h1>
 
 <table>
+  <%- if @cases.any? %>
   <tr>
     <th>Client</th>
     <th>Notes</th>
@@ -8,6 +9,7 @@
     <th></th>
     <th></th>
   </tr>
+<%- end %>
 
 <%- @cases.each do |c| %>
   <tr>
@@ -22,4 +24,4 @@
 
 <br />
 
-<%= link_to 'New Case', new_case_path %>
+<!-- <%= link_to 'New Case', new_case_path %> -->
