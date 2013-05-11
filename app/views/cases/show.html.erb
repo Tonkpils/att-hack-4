@@ -1,15 +1,7 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Client:</b>
-  <%= @case.client_id %>
-</p>
+<h1>Case <%= @case.name %></h1>
+<small><%= @case.client.name %></small>
 
-<p>
-  <b>Notes:</b>
-  <%= @case.notes %>
-</p>
-
-
-<%= link_to 'Edit', edit_case_path(@case) %> |
-<%= link_to 'Back', cases_path %>
+<div id="timecount"></div>
+<button id="timer">Start Timer</button>
