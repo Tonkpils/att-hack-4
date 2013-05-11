@@ -8,3 +8,6 @@
 <row>
   <div id="timecount"></div>
 </row>
+<row>
+	<%= link_to "Create Invoice", new_invoice_path(client_id: client.id), class: "btn btn-primary btn-small new_client_case", :'data-method' => :get %>
+</row>
