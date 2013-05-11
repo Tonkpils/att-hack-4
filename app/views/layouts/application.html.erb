@@ -18,7 +18,7 @@
     <!-- Size should be 32 x 32 pixels -->
   </head>
   <body>
-
+  <%- if user_signed_in? %>
     <div class="navbar navbar-fluid-top">
       <div class="navbar-inner">
         <div class="container-fluid">
@@ -30,14 +30,15 @@
           <a class="brand" href="#">BarTab</a>
           <div class="container-fluid nav-collapse">
             <ul class="nav">
-              <%- if user_signed_in? %>
+
                 <li><%= link_to "Sign out", destroy_user_session_path, method: "delete" %></li>
-              <% end %>
+
             </ul>
           </div><!--/.nav-collapse -->
         </div>
       </div>
     </div>
+  <% end %>
 
     <div class="container-fluid">
       <div class="row-fluid">
