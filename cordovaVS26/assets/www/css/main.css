@@ -1,0 +1,137 @@
+body
+{
+	font-family:Arial !important;
+	font-size: 0.9em;
+}
+
+.add-a-case-container
+{
+	border-radius:10px;
+	background-color:#a42626;
+	color:#fff;
+	padding: 5px 15px;
+	
+}
+
+
+/*********image-selector************/
+.image-selector
+{
+	margin:auto;
+	border:1px solid #000;
+}
+.image-selector.image-patient2
+{
+	margin-bottom:20px;
+}
+.image-preview-container
+{
+	padding:3px;
+	background-color: #FFFFFF;
+	border-bottom: 1px solid;
+}
+.image-preview
+{
+	display: block;
+	margin: auto;
+}
+.image-footer
+{
+	overflow:hidden;
+	/* Safari 4-5, Chrome 1-9 */
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ce8b8b), to(#a32020));
+  
+  /* Safari 5.1, Chrome 10+ */
+  background: -webkit-linear-gradient(top, #ce8b8b, #a32020);
+  
+  /* Firefox 3.6+ */
+  background: -moz-linear-gradient(top, #ce8b8b, #a32020);
+  
+  /* IE 10 */
+  background: -ms-linear-gradient(top, #ce8b8b, #a32020);
+  
+  /* Opera 11.10+ */
+  background: -o-linear-gradient(top, #ce8b8b, #a32020);
+}
+.image-icon
+{
+	background-image:url("../css/picture-sprite.png");
+	width:33.33px;
+	height:42px;
+	margin-right:10px;
+	margin-left:10px;
+	display:block;	
+	background-repeat:no-repeat;
+}
+.image-icon-link
+{
+	 display: block;
+    float: left;
+    overflow: hidden;
+}
+.image-icon-link.delete-icon 
+{
+	float:right;
+}
+.image-icon.camera-icon 
+{
+	background-position: -4px;
+}
+.image-icon.delete-icon 
+{
+	background-position: -74px;
+}
+.image-icon.browse-icon
+{
+	background-position: -38px;
+}
+
+#home-button
+{
+    background-image: url("../css/picture-sprite.png");
+    background-position: -104px -3px;
+    height: 32px;
+    width: 40px;
+}
+
+/* pc */
+	.image-selector { width:226px; }
+	.image-preview { width:220px; }
+/* iphone */
+@media only screen and (min-device-width : 320px) and (max-device-width : 640px) {
+	.image-selector { width:226px; }
+	.image-preview { width:220px; }
+}
+
+
+
+
+#information-list
+{
+	list-style:none;
+	padding:0;
+	margin:0;
+}
+#information-list li
+{
+	border-bottom:1px dotted #ccc;
+	padding:10px;
+}
+
+
+#ajax-loader
+{
+	background-color:#ccc;
+	padding: 59px 0;
+}
+#ajax-loader img
+{
+	margin:auto; 
+	display:block;
+}
+#ajax-loader span
+{
+	display: block;
+    text-align: center;
+    width: 100%;
+}
