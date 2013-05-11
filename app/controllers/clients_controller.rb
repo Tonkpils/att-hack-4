@@ -10,6 +10,9 @@ class ClientsController < ApplicationController
 
   def create
     client_params = params[:client]
+    if client_params && client_params[:name].blank?
+      redirect_to clients_url, alert: "Provide a name" and return
+    end
     @client = Client.where(name: client_params[:name]).first_or_initialize
     if @client.new_record?
       @client.user_id = current_user.id
@@ -21,5 +24,10 @@ class ClientsController < ApplicationController
 
   def new
 
+  end
+
+  def destroy
+    Client.destroy(params[:id])
+    render json: {id: params[:id]}, status: :ok
   end
 end

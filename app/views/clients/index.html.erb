@@ -1,19 +1,20 @@
 <h1>Clients</h1>
 <%= form_for @client do |f| %>
-    <%= f.label :name %>
     <div class="input-prepend">
-      <%= f.text_field :name %>
-      <span class="add-on">+</span>
-      <%= f.submit %>
+      <%= f.text_field :name, placeholder: "Client Name..."  %>
+      <%= f.submit("+", class: "btn")%>
     </div>
 <% end %>
 
-<ul>
+<table id="client_list">
+  <tr>
+    <th>Name</th>
+    <th></th>
+  </tr>
 <%- @clients.each do |c| %>
-  <li>
-    <p><%= c.name %></p>
-    <p><%= c.email %></p>
-
-  </li>
+  <tr id=<%= "client_#{c.id}"%>>
+    <td><%= c.name %></td>
+    <td><%= link_to "Delete", client_path(c), class: "btn btn-danger btn-small pull-right client_delete", :'data-method' => :delete, remote: true %></td>
+  </tr>
 <% end %>
-</ul>
+</table>
