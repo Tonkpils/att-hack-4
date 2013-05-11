@@ -1,0 +1,19 @@
+<h1>Clients</h1>
+<%= form_for @client do |f| %>
+    <%= f.label :name %>
+    <div class="input-prepend">
+      <%= f.text_field :name %>
+      <span class="add-on">+</span>
+      <%= f.submit %>
+    </div>
+<% end %>
+
+<ul>
+<%- @clients.each do |c| %>
+  <li>
+    <p><%= c.name %></p>
+    <p><%= c.email %></p>
+
+  </li>
+<% end %>
+</ul>
