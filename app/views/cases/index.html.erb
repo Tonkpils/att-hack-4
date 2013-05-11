@@ -3,8 +3,9 @@
 <table>
   <%- if @cases.any? %>
   <tr>
-    <th>Client</th>
-    <th>Notes</th>
+    <th>Case Name</th>
+    <th>Client Name</th>
+    <th></th>
     <th></th>
     <th></th>
     <th></th>
@@ -15,8 +16,9 @@
 
 <%- @cases.each do |c| %>
   <tr>
-    <td><%= c.client_id %></td>
-    <td><%= c.notes %></td>
+    <td><%= c.name %></td>
+    <td><%= c.client.name %></td>
+    <td></td>
     <td><%= link_to 'Show', c %></td>
     <td><%= link_to 'Edit', edit_case_path(c) %></td>
     <td><%= link_to 'Destroy', case_path(c), method: :delete, data: { confirm: 'Are you sure?' } %></td>

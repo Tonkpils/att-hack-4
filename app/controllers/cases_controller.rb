@@ -49,7 +49,7 @@ class CasesController < ApplicationController
 
     respond_to do |format|
       if @case.save
-        format.html { redirect_to @case, notice: 'Case was successfully created.' }
+        format.html { redirect_to client_case_path(client_id: @client.id, id: @case.id), notice: 'Case was successfully created.' }
         format.json { render json: @case, status: :created, location: @case }
       else
         format.html { render action: "new" }
