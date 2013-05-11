@@ -28,7 +28,7 @@
   -webkit-border-radius: 3px;
   -moz-border-radius   : 3px;
   border-radius        : 3px;
-  -moz-background-clip   : padding;
+  -moz-background-clip   : padding-box;
   -webkit-background-clip: padding-box;
   background-clip        : padding-box;
   border:1px solid #ccc;
@@ -114,7 +114,7 @@
   -webkit-border-radius: 0 0 4px 4px;
   -moz-border-radius   : 0 0 4px 4px;
   border-radius        : 0 0 4px 4px;
-  -moz-background-clip   : padding;
+  -moz-background-clip   : padding-box;
   -webkit-background-clip: padding-box;
   background-clip        : padding-box;
 }
