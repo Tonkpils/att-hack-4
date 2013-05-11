@@ -2,7 +2,7 @@ class CasesController < ApplicationController
   before_filter :find_client
 
   def find_client
-    @client = Client.where(id: params[:client_id])
+    @client = Client.where(id: params[:client_id]).first
   end
   # GET /cases
   # GET /cases.json
