@@ -1,12 +1,13 @@
 class CasesController < ApplicationController
+  before_filter :find_client
+
+  def find_client
+    @client = Client.where(id: params[:client_id])
+  end
   # GET /cases
   # GET /cases.json
   def index
-    if params[:client_id]
-      @cases = Case.where(client_id: params[:client_id]).all
-    else
-      @cases = Case.all
-    end
+    @cases = @client ? @client.cases : Case.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -17,7 +18,7 @@ class CasesController < ApplicationController
   # GET /cases/1
   # GET /cases/1.json
   def show
-    @case = Case.find(params[:id])
+    @case = @client.cases.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -28,7 +29,7 @@ class CasesController < ApplicationController
   # GET /cases/new
   # GET /cases/new.json
   def new
-    @case = Case.new
+    @case = @client.cases.build
 
     respond_to do |format|
       format.html # new.html.erb
@@ -44,7 +45,7 @@ class CasesController < ApplicationController
   # POST /cases
   # POST /cases.json
   def create
-    @case = Case.new(params[:case])
+    @case = @client.cases.create params[:case]
 
     respond_to do |format|
       if @case.save
