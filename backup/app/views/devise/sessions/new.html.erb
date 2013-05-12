@@ -1,0 +1,26 @@
+<div class="grid">
+  <div class="grid-title login"><h1 class="text-center" title="[App Name]">[Logo Here]</h1>
+  </div>
+  <div class="grid-content sign-in-form" id="sign-in">
+    <%= form_for(resource, :as => resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="formRow">
+          <div class="">
+            <%= f.email_field :email, :autofocus => true, class: "span input", placeholder: "Email..." %>
+          </div>
+        </div>
+        <div class="formRow">
+          <div class="">
+            <%= f.password_field :password, id: "pass1", class: "span input", placeholder: "Password..." %>
+            <!--<input type="password" id="pass1" name="pass1" class="span input">-->
+          </div>
+        </div>
+
+        <div><%= f.submit "Login", class: "btn btn-large" %></div>
+
+        <div class="clearfix"></div>
+    <% end %>
+  </div>
+
+  <%= render "devise/shared/links" %>
+
+</div>

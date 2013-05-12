@@ -1,0 +1,13 @@
+# Place all the behaviors and hooks related to the matching controller here.
+# All this logic will automatically be available in application.js.
+# You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
+
+
+$(document).ready ->
+  $("a.client_delete")
+    .bind "ajax:success", (evt, data, status, xhr) ->
+      console.log data
+      console.log "LAME"
+      $("#client_#{data['id']}").remove()
+    .bind "ajax:error", (evt, data, status, xhr) ->
+      $("div#errors p").text data

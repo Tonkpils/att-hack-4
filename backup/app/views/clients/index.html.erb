@@ -1,0 +1,33 @@
+<h1>Clients</h1>
+<%= form_for @client do |f| %>
+    <div class="input-prepend">
+      <%= f.text_field :name, placeholder: "Client Name..."  %>
+      <%= f.submit("+", class: "btn")%>
+    </div>
+<% end %>
+
+<table id="client_list">
+  <%- if @clients.any? %>
+    <tr>
+      <th>Name</th>
+      <th></th>
+      <th></th>
+    </tr>
+  <%- else %>
+    No clients stored
+  <%- end %>
+<%- @clients.each do |c| %>
+  <tr id=<%= "client_#{c.id}"%>>
+    <td><%= c.name %></td>
+    <td>
+      <%= link_to "Create New Case", new_client_case_path(client_id: c.id), class: "btn btn-primary btn-small new_client_case", :'data-method' => :get %>
+    </td>
+    <td>
+      <%= link_to "View Cases", client_cases_path(client_id: c.id), class: "btn btn-primary btn-small new_client_case", :'data-method' => :get %>
+    </td>
+    <td>
+      <%= link_to "Delete", client_path(c), class: "btn btn-danger btn-small pull-right client_delete", :'data-method' => :delete, remote: true %>
+    </td>
+  </tr>
+<% end %>
+</table>
